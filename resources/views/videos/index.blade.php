@@ -21,15 +21,18 @@
 
     <!-- Page Features -->
     <div class="row text-center">
-        @foreach ($posts["items"] as $post)
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="{{ $post["snippet"]["thumbnails"]["high"]["url"] }}" alt="">
-          <div class="card-body">
-            <h4 class="card-title"> {{ $post["snippet"]['title'] }}</h4>
-          </div>
-        </div>
-      </div>
+        @foreach ($videos["items"] as $video)
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <a href="/video/{{ $video["id"] }}" style="text-decoration:none;color: #000;">
+                <div class="card h-100">
+                  <img class="card-img-top" src="{{ $video["snippet"]["thumbnails"]["high"]["url"] }}" alt="">
+                  <div class="card-body">
+                    <h4 class="card-title"> {{ $video["snippet"]['title'] }}</h4>
+                  </div>
+                </div>
+            </a>
+              </div>
 
       @endforeach
 
@@ -38,10 +41,6 @@
 
   </div>
   <!-- /.container -->
-        <div class="container">
-
-
-        </div>
 
     </body>
 </html>
