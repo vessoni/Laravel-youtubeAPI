@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,10 +18,14 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <h1 class="display-3">YoutubeAPI</h1>
+         <input type="text" id="myInput">
+        <button type="button" class="btn btn-warning" id="getRequest">getRequest </button>
     </header>
+        <div id="getRequestData">
 
+        </div>
     <!-- Page Features -->
-    <div class="row text-center">
+    <div class="row text-center" id="home">
         @foreach ($videos["items"] as $video)
 
             <div class="col-lg-3 col-md-6 mb-4">
@@ -42,5 +47,20 @@
   </div>
   <!-- /.container -->
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('#getRequest').click(function(){
+        var str = $("#myInput").val();
+        $.get('search/'+str,function(data){
+            $("#home").html("");
+            $('#getRequestData').append(data);
+            console.log(data);
+        })
+    })
+})
+
+</script>
     </body>
 </html>

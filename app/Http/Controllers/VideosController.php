@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Videos;
 
-
 class VideosController extends Controller
 {
     protected $videos;
@@ -24,8 +23,15 @@ class VideosController extends Controller
 
     public function show($id){
 
-        $video = $this->videos->find($id);
+            $video = $this->videos->find($id);
 
             return view('videos.show', compact('video'));
+    }
+
+    public function find($id){
+
+            $videos = $this->videos->search($id);
+
+            return view('videos.find', compact('videos'));
     }
 }
