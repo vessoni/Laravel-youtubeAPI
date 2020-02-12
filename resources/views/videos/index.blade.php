@@ -19,7 +19,7 @@
     <header class="jumbotron my-4">
       <h1 class="display-3">YoutubeAPI</h1>
          <input type="text" id="myInput">
-        <button type="button" class="btn btn-warning" id="getRequest">getRequest </button>
+        <button type="button" class="btn btn-warning" id="getRequest">Search </button>
     </header>
         <div id="getRequestData">
 
